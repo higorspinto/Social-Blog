@@ -12,13 +12,13 @@ git clone https://github.com/higorspinto/Social-Blog.git
 
 # Dependencies
 
-All dependecies can be installed using requirements.txt.
+All dependencies can be installed using requirements.txt.
 
 # Setting Up the Database
 
-The datase is configured to use SQLite using Migrations to create the schema and tables.
+The database is configured to use SQLite using Migrations to create the schema and tables.
 
-In the same directory of the cloned repository, set up the environment variable:
+In the same directory of the cloned repository, set up the environment variable.
 
 Windows Users need to run:
 
