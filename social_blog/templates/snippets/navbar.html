@@ -1,0 +1,58 @@
+{% block navbar %}
+
+<nav class="nav navbar navbar-expand-lg navbar-light bg-info shadow-sm">
+    <!-- <a href="#" class="navbar-brand text-white">Social Blog</a> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="nav navbar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{url_for('core.index')}}" >Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{ url_for('core.info') }}">About</a>
+            </li>
+
+            {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{url_for('users.account')}}" >Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Create Post</a>
+                </li>
+            
+            {% endif %}
+        
+        </ul>
+
+        <ul class="nav navbar-nav ml-auto">
+
+            {% if current_user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{url_for('users.logout')}}">Log Out</a>
+                </li>
+                
+            {% else %}
+                
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{url_for('users.login')}}">Login</a>
+                </li>
+                        
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{url_for('users.register')}}">Register</a>
+                </li>
+
+            {% endif %}
+
+        </ul>
+
+    </div>
+</nav>
+
+{% endblock %}

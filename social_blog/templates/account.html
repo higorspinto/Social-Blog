@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+        <h1 class="text-center mb-4 mt-4 text-secondary">Account</h1>
+        <div class="row align-items-center justify-content-center shadow mt-4 pt-3 bg-white">
+            <div class="col-md-3">
+                <div class="text-center"> 
+                    <img class="img-thumbnail" src="{{url_for('static',filename='profile_pics/' + current_user.profile_image )}}" alt="">
+                </div>
+        
+                <div class="text-center mt-1">
+                    <h4>{{current_user.username}}</h4>
+                    {{current_user.email}}
+                </div> 
+            </div>    
+
+            <div class="col-md-9">
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {{form.hidden_tag()}}
+                    <div class="form-group">
+                        {{form.username.label(class="form-group")}}
+                        {{form.username(class="form-control")}}
+                    </div>
+                    <div class="form-group">
+                        {{form.email.label(class="form-group")}}
+                        {{form.email(class="form-control")}}
+                    </div>
+                    <div class="form-group">
+                        {{form.picture.label(class="form-group")}}
+                        {{form.picture(class="form-control")}}
+                    </div>
+                    <div class="form-group text-center">
+                        {{form.submit(class="btn btn-info")}}
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
+
+{% endblock %}
