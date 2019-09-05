@@ -6,9 +6,9 @@ A simple Web Social Blog. Written in Python Flask, it can be used by companies, 
 
 Clone the repository:
 
-´´´
+```
 git clone https://github.com/higorspinto/Social-Blog.git
-´´´
+```
 
 # Dependencies
 
@@ -22,21 +22,21 @@ In the same directory of the cloned repository, set up the environment variable:
 
 Windows Users need to run:
 
-´´´
+```
 set FLASK_APP=app.py
-´´´
+```
 
 MacOS/Linux users run:
 
-´´´
+```
 export FLASK_APP=app.py 
-´´´
+```
 
 Using migrations:
 
-´´´
+```
 flask db init
 flask db migrate -m "Creating the database"
 flask db upgrade
-´´´
+```
 
