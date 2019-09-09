@@ -2,9 +2,39 @@
 
 {% block content %}
 
-<div class="jumbotron bg-light">
-    <h1 class="text-center">Social Blog</h1>
-    <h5 class="text-center text-secondary">Sharing Content, and Communicating Better!</h5>
+<div class="container mt-5">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-2">
+            Keywords
+        </div>
+        <div class="col-sm-8 shadow pl-0 pr-0">
+            
+            {% for post in blog_posts.items %}
+                <div class="card border-light">
+                    <div class="card-body">
+                        <h4><a class="card-title text-info" href="{{url_for('blog_posts.blog_post',blog_post_id=post.id)}}">{{post.title}}</a></h4>
+                        <p class="text-secondary mb-1">Written by: <a class="text-info" href="{{url_for('users.user_posts',username=post.author.username)}}">{{post.author.username}}</a></p>
+                        <p class="text-secondary">Published on: {{post.date.strftime("%H:%M:%S, %Y-%m-%d")}}</p>
+                        {% set num_char = 310 %}
+                        <p class="font-weight-light">{{post.text[:num_char]}}
+                            {% if post.text|length > num_char %}
+                                <a class="text-info" href="{{url_for('blog_posts.blog_post',blog_post_id=post.id)}}"> ...more</a>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+            
+            {% include 'page_navigation/blog_posts_index.html' %}
+
+        </div>
+        <div class="col-sm-2">
+            {% include 'snippets/user_profile_sm.html'%}
+            {% include 'snippets/navbar_user.html'%}
+        </div>
+    </div>
 </div>
+
+
 
 {% endblock %}

@@ -40,3 +40,6 @@ app.register_blueprint(error_pages)
 
 from social_blog.users.views import users
 app.register_blueprint(users)
+
+from social_blog.blog_posts.views import blog_posts
+app.register_blueprint(blog_posts)
