@@ -5,9 +5,12 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_whooshee import Whooshee
 
 app = Flask(__name__)
+
 app.config["SECRET_KEY"] = 'mysecret'
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 #############################################
 ###### Database Config ######################
@@ -18,7 +21,15 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'da
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+db.init_app(app)
 Migrate(app, db)
+
+#############################################
+#### Whoosh Config ##########################
+#############################################
+
+whooshee = Whooshee(app)
+whooshee.init_app(app)
 
 #############################################
 ###### Login Configuration ##################

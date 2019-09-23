@@ -1,0 +1,14 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+#Migrations
+migrations/
+
+#Whooshee Search
+whooshee/
+
+#Database
+data.sqlite
+
+# VSCode Project
+.vscode

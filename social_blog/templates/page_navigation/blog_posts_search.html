@@ -1,0 +1,18 @@
+<nav aria-label='Page Navigation Example'>
+        <ul class="pagination pagination-sm justify-content-end mt-3 mr-3">
+            {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                {% if blog_posts.page == page_num %}
+                    <li class="page-item active">
+                        <span>
+                            <a class="page-link bg-info" href="{{url_for('core.search', search_param=search_param, page=page_num)}}">{{page_num}}</a>
+                            <span class="sr-only">(current)</span>
+                        </span>
+                    </li>
+                {% else %} 
+                    <li class="page-item">
+                        <a class="page-link" href="{{url_for('core.search', search_param=search_param, page=page_num)}}">{{page_num}}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+</nav>
