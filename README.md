@@ -14,6 +14,10 @@ git clone https://github.com/higorspinto/Social-Blog.git
 
 All dependencies can be installed using requirements.txt.
 
+```
+pip install requirements.txt
+```
+
 ## Setting Up the Database
 
 The database is configured to use SQLite using Migrations to create the schema and tables.
