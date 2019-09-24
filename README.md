@@ -2,7 +2,7 @@
 
 A simple Web Social Blog. Written in Python Flask, it can be used by companies, groups, and or organizations to provide discussion and communication about their topics.
 
-## Installation
+## 1) Installation
 
 Clone the repository:
 
@@ -10,7 +10,7 @@ Clone the repository:
 git clone https://github.com/higorspinto/Social-Blog.git
 ```
 
-## Dependencies
+### Dependencies
 
 All dependencies can be installed using requirements.txt.
 
@@ -18,7 +18,7 @@ All dependencies can be installed using requirements.txt.
 pip install requirements.txt
 ```
 
-## Setting Up the Database
+## 2) Setting Up the Database
 
 The database is configured to use SQLite using Migrations to create the schema and tables.
 
