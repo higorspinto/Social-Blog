@@ -32,7 +32,7 @@ The database is configured to use SQLite. All the data will be stored in a file 
 
 _________________________________________________________________________________________
 
-In the same directory of the cloned repository, set up the environment variable.
+2.1) In the same directory of the cloned repository, set up the environment variable.
 
 Windows Users need to run:
 
@@ -46,7 +46,7 @@ MacOS/Linux users run:
 export FLASK_APP=app.py 
 ```
 
-Database initialization and migrate.
+2.2) Database initialization and migrate.
 
 ```
 flask db init
