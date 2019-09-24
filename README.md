@@ -2,6 +2,8 @@
 
 A simple Web Social Blog. Written in Python Flask, it can be used by companies, groups, and or organizations to provide discussion and communication about their topics.
 
+[[social_blog/static/img/home_page.png]]
+
 ## 1) Installation
 
 Clone the repository:
