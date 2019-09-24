@@ -22,6 +22,8 @@ pip install requirements.txt
 
 The database is configured to use SQLite using Migrations to create the schema and tables.
 
+_________________________________________________________________________________________
+
 In the same directory of the cloned repository, set up the environment variable.
 
 Windows Users need to run:
