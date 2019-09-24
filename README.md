@@ -4,6 +4,8 @@ A simple Web Social Blog. Written in Python Flask, it can be used by companies, 
 
 ![Home Page Image](social_blog/static/img/home_page.png)
 
+Not authenticated users can see all posts inside the blog. Logged users can create, update, delete their own posts. 
+
 ## 1) Installation
 
 Clone the repository:
@@ -22,7 +24,11 @@ pip install requirements.txt
 
 ## 2) Setting Up the Database
 
-The database is configured to use SQLite using Migrations to create the schema and tables.
+The database is configured to use SQLite. All the data will be stored in a file called *data.sqlite*.
+
+#### Migrations
+
+[Flask-Migrate](https://flask-migrate.readthedocs.io/en/latest/) is an extension that handles SQLAlchemy database migrations for Flask applications. The database operations are made available through the Flask command-line interface or through the Flask-Script extension.
 
 _________________________________________________________________________________________
 
@@ -40,7 +46,7 @@ MacOS/Linux users run:
 export FLASK_APP=app.py 
 ```
 
-#### Using migrations:
+Database initialization and migrate.
 
 ```
 flask db init
