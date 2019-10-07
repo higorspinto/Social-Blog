@@ -36,3 +36,7 @@ def search(search_param):
 @core.route('/info')
 def info():
     return render_template('info.html')
+
+@core.route('/api')
+def api():
+    return render_template('api.html')

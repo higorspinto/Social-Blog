@@ -52,8 +52,12 @@ class BlogPost(db.Model):
 
     def __repr__(self):
         return f"Post ID: {self.id} -- Date: {self.date} -- Title: {self.title}"
+
+    def json(self):
+        return {'id':self.id, 'user_id':self.user_id, 'date':self.date.strftime("%d/%m/%Y, %H:%M:%S"),
+                'title':self.title, 'text':self.text}
     
-    whooshee.reindex()
+    #whooshee.reindex()
 
 
 

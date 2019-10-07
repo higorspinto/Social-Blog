@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_whooshee import Whooshee
+from flask_restful import Api
 
 app = Flask(__name__)
 
@@ -39,6 +40,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'users.login'
 
+
 #############################################
 ##### Blueprints Registration ###############
 #############################################
@@ -54,3 +56,16 @@ app.register_blueprint(users)
 
 from social_blog.blog_posts.views import blog_posts
 app.register_blueprint(blog_posts)
+
+
+#############################################
+##### API Configuration #####################
+#############################################
+
+api_conf = Api(app)
+
+from social_blog.api.blog_posts_api import AllPostsAPI
+api_conf.add_resource(AllPostsAPI, '/api/blog_posts')
+
+from social_blog.api.blog_posts_api import BlogPostAPI
+api_conf.add_resource(BlogPostAPI, '/api/blog_post/<int:blog_post_id>')
