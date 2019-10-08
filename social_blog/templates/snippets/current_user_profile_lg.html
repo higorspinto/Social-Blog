@@ -1,0 +1,8 @@
+<div class="text-center"> 
+    <img class="img-thumbnail" src="{{url_for('static',filename='profile_pics/' + current_user.profile_image )}}" alt="">
+</div>
+    
+<div class="text-center mt-1">
+    <h4 class="text-secondary">{{current_user.username}}</h4>
+    <p class="text-secondary">{{current_user.email}}</p>
+</div> 

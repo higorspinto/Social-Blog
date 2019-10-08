@@ -9,7 +9,7 @@
     <div class="row justify-content-md-center">
 
         <div class="col-sm-2">
-            Keywords
+            
         </div>
 
         <div class="col-sm-8 shadow pl-0 pr-0">
@@ -21,7 +21,7 @@
 
         <div class="col-sm-2">
             {% if current_user.is_authenticated %}
-                {% include 'snippets/user_profile_sm.html'%}
+                {% include 'snippets/current_user_profile_sm.html'%}
                 {% include 'snippets/navbar_user.html'%}
             {% endif %}
         </div>
