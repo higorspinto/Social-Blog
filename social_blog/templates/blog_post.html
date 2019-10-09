@@ -2,18 +2,31 @@
 
 {% block content %}
 
-    <div class="container bg-white shadow mt-3 pt-3 pb-3">
-        <h4 class="text-info ">{{post.title}}</h4>
-        <p class="mb-1 font-weight-light">Written by: <a class="text-info" href="{{url_for('users.user_posts',username=post.author.username)}}">{{post.author.username}}</a></p>
-        <p class="font-weight-light ">Published: {{post.date.strftime('%B %d, %Y')}}</p>
-        <textarea readonly class="form-control form-control-lg font-weight-light bg-white border-0" style="height: 22rem; font-size: 16px">{{post.text}}</textarea>
+    <div class="row justify-content-md-center mt-4">
 
-        {% if post.author == current_user %}
-            <div class="text-center mt-3">
-                <a class="btn btn-info" href="{{url_for('blog_posts.update_post',blog_post_id=post.id)}}">Update</a>
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#del_modal">Delete</button>
+        <div class="col-sm-10">
+            <div class="container bg-white shadow pt-3 pb-3">
+                <h4 class="text-info ">{{post.title}}</h4>
+                <p class="mb-1 font-weight-light">Written by: <a class="text-info" href="{{url_for('users.user_posts',username=post.author.username)}}">{{post.author.username}}</a></p>
+                <p class="font-weight-light ">Published: {{post.date.strftime('%B %d, %Y')}}</p>
+                <textarea readonly class="form-control form-control-lg font-weight-light bg-white border-0" style="height: 22rem; font-size: 16px">{{post.text}}</textarea>
+
+                {% if post.author == current_user %}
+                    <div class="text-center mt-3">
+                        <a class="btn btn-info" href="{{url_for('blog_posts.update_post',blog_post_id=post.id)}}">Update</a>
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#del_modal">Delete</button>
+                    </div>
+                {% endif %}
             </div>
-        {% endif %}
+        </div>
+
+        <div class="col-sm-2">
+            {% if current_user.is_authenticated %}
+                {% include 'snippets/current_user_profile_sm.html'%}
+                {% include 'snippets/navbar_user.html'%}
+            {% endif %}
+        </div>
+
     </div>
 
     {% include 'modals/delete_post.html' %}
