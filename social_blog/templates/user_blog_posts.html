@@ -2,29 +2,24 @@
 
 {% block content %}
 
-<div class="container mt-5">
-    <div class="row mt-3">
-        <div class="col-10">
-            <div class="row justify-content-center bg-white shadow pt-3">
-                <div class="col-md-2">
-                    {% include '/snippets/user_profile_lg.html'%}     
-                </div>
-                <div class="col-md-10">
-                    {% for post in blog_posts.items %}
-                        <h4><a class="text-info" href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}">{{post.title}}</a></h4>
-                        Written by: <a class="text-info" href="{{url_for('users.user_posts', username=post.author.username)}}"> {{post.author.username}}</a>
-                        <p class="text-muted">Published on: {{post.date.strftime("%H:%M:%S, %y-%m-%d")}}</p>
-                        <p class="font-weight-light pt-3 pb-3">{{post.text}}</p>
-                    {% endfor %}
-                            
-                    {% include '/page_navigation/blog_posts_user.html'%}
-                </div>
-            </div>
+<div class="container-fluid mt-1 pr-0">
+    <div class="row mt-3 pr-0">
+
+        <div class="col-2 pl-0 mr-5">
+            {% include '/snippets/user_profile_lg.html' %}
+            <hr>
         </div>
 
-        <div class="col-2">
-            {% include 'snippets/current_user_profile_sm.html'%}
-            {% include 'snippets/navbar_user.html'%}
+        <div class="col-9 bg-white pt-3 shadow">
+            {% for post in blog_posts.items %}
+                <h4><a class="text-info" href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}">{{post.title}}</a></h4>
+                Written by: <a class="text-info" href="{{url_for('users.user_posts', username=post.author.username)}}"> {{post.author.username}}</a>
+                <p class="text-muted">Published on: {{post.date.strftime("%H:%M:%S, %y-%m-%d")}}</p>
+                <p class="font-weight-light pt-3 pb-3">{{post.text}}</p>
+                <hr>
+            {% endfor %}
+                            
+            {% include '/page_navigation/blog_posts_user.html'%}
         </div>
         
     </div>
